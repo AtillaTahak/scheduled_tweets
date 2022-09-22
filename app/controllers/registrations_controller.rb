@@ -6,9 +6,11 @@ class RegistrationsController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_path, notice: "Signed up!"
+      session[:user_id] = @user.id
+      redirect_to root_path, notice: "Thanks for signing up!"
     else
-      render "new"
+      flash[:alert] = "There was a problem signing you up."
+      render :new
     end
   end
 
