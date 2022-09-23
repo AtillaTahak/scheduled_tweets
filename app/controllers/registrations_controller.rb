@@ -9,7 +9,6 @@ class RegistrationsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path, notice: "Thanks for signing up!"
     else
-      flash[:alert] = "There was a problem signing you up."
       render :new
     end
   end
