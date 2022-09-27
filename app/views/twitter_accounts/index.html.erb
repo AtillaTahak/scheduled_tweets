@@ -1,0 +1,30 @@
+<div class="d-flex align-items-center justify-content-between" >
+
+  <h1>Twitter Accounts</h1>
+  <%= link_to "Connect Twitter","/auth/twitter", data: {turbo: "false"}, method: :post, class:"btn btn-primary"%>
+</div>
+<% if @twitter_accounts.empty? %>
+  <p>There are no Twitter Accounts</p>
+<% else %>
+    <%@twitter_accounts.each do |twitter_account|%>
+    <div class="mb-4">
+      <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">
+            <%= 
+            link_to "@#{twitter_account.username}",
+            "https://twitter.com/#{twitter_account.username}",
+            target: "_blank",
+            rel: "noopener",
+            class: "text-decoration-none"
+            %>
+            </h5>
+            <%= image_tag twitter_account.image, class:"rounded-circle"%>
+         </div>
+         <div class="card-footer">
+            <%= button_to "Disconnect", twitter_account, method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-danger"%>
+          </div>
+        </div>
+    </div>
+    <%end%>
+<% end %>
