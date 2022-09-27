@@ -1,0 +1,35 @@
+<%# tweets list  %>
+<div class="mb-3 card card-body">
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            <%= image_tag tweet.twitter_account.image, class: "rounded-circle" %>
+            <%= link_to "@#{tweet.twitter_account.username}", "https://twitter.com/#{tweet.twitter_account.username}", target: "_blank", rel: "noopener", class: "text-decoration-none" %>
+        </div>
+        <div>
+            <span class="badge bg-primary">Tweet Body:  <%= tweet.body %> </span>
+        </div>
+        <div>
+            <%= button_to "Delete", tweet_path(tweet), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger" %>
+        </div>
+         <div>
+            <%= link_to "Edit", edit_tweet_path(tweet), class:"btn btn-warning" %>
+        </div>
+    </div>
+    <%if tweet.published?%>
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <span class="badge bg-success">Published At: <%= tweet.publish_at %></span>
+            </div>
+            <div>
+                <%= link_to "View Tweet", "https://twitter.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}", target: "_blank", rel: "noopener", class: "text-decoration-none" %>
+            </div>
+        </div>
+    <%else%>
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <span class="badge bg-warning">Publish At: <%= l tweet.publish_at, format: :long %></span>
+            </div>
+        </div>
+    <%end%>
+</div>
+<%#  %>
