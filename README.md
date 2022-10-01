@@ -103,4 +103,4 @@ $ rails s
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/atilla-taha-kördüğüm-a93702186/)
 - Blog: [Blog](atillataha.blogspot.com)
 - Youtube: [YouTube](https://www.youtube.com/channel/UCmoD0x4Z9vdG2PCsI5p8FYg)
-- Portfolio: [Portfolio](atillataha.netlify.app)
+- Portfolio: [Portfolio](https://atillataha.netlify.app)
